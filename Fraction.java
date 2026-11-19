@@ -54,4 +54,13 @@ public class Fraction {
 			System.out.println("Denominator cannot be 0");
 		}
 	}
+	
+	public static Fraction mult (Fraction a, Fraction b) {
+		int n = a.getNumerator() * b.getNumerator();
+		int d = a.getDenominator() * b.getDenominator();
+		Fraction answer = new Fraction(n,d);
+		return answer;
+		
+	}
+	
 }
