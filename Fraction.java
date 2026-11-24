@@ -63,4 +63,31 @@ public class Fraction {
 		
 	}
 	
+	public static Fraction divide(Fraction a, Fraction b) {
+		Fraction flipped = new Fraction(b.getDenominator(), b.getNumerator());
+		return multiply(a, flipped);
+	} 
+	
+	public static Fraction add(Fraction a, Fraction b) {
+		int n = a.getNumerator() * b.getDenominator() +  b.getNumerator() * a.getDenominator();
+		int d = a.getDenominator() * b.getDenominator();
+		Fraction ans = new Fraction(n, d);
+		ans.reduce();
+		return ans;
+	}
+	
+	private static Fraction gcf (a, b) {
+		int a = Math.abs(a);
+		int b = Math.abs(b);
+		
+		while (a != b) {
+			if (a > b) {
+				a = a - b;
+			} else {
+				b = b - a;
+			}
+		}
+		return a;
+	}
+	
 }
