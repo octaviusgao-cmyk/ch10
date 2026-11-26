@@ -4,14 +4,14 @@ public class Fraction {
 	Random rand = new Random();
 	//instance variable (attribute or fields)
 	private int numerator, denominator;
-	String[] signs = {"+", "-", "*", "/"};
+	
+	private String sign;
 	
 	//constructor(s)
 	public Fraction () { // default constructor
 		numerator = rand.nextInt(10);
-		denominator = rand.nextInt(10);
-		
-		String sign = signs[rand.nextInt(4)];
+		denominator = rand.nextInt(9) + 1;
+	
 	}
 	
 	public Fraction (int n, int d) { //parameterized constructor
@@ -95,6 +95,13 @@ public class Fraction {
 		Fraction ans = new Fraction(n, d);
 		ans.reduce();
 		return ans;
+	}
+	
+	public static Fraction subtract(Fraction a, Fraction b) {
+		int n = a.getNumerator() * b.getDenominator() - b.getNumerator() * a.getDenominator();
+		int d = a.getDenominator() * b.getDenominator();
+		Fraction answer = new Fraction(n, d);
+		return answer;
 	}
 	
 	private static int gcf (int a, int b) {
