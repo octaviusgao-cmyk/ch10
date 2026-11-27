@@ -9,8 +9,8 @@ public class Fraction {
 	
 	//constructor(s)
 	public Fraction () { // default constructor
-		numerator = rand.nextInt(10);
-		denominator = rand.nextInt(9) + 1;
+		numerator = (int) rand.nextInt(10);
+		denominator = (int) rand.nextInt(9) + 1;
 	
 	}
 	
@@ -67,6 +67,7 @@ public class Fraction {
 		}
 		int g = gcf(numerator, denominator);
 		numerator = numerator / g;
+		denominator = denominator / g;
 		if (denominator < 0) {
 			numerator = -numerator;
 			denominator = -denominator;
